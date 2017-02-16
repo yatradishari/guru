@@ -63,7 +63,7 @@ class DestinationController extends Controller {
 	}
     
     public function getDetails($title_meta_tag)
-	{
+	{       
         $destinations=Destination::where('visibility',1)						 
 							->where('deleted',0)
 							->where('title_meta_tag',$title_meta_tag)
@@ -82,15 +82,15 @@ class DestinationController extends Controller {
 	}
     
     public function getPopular()
-	{  
+	{ 
         $destinations=Destination::where('visibility',1)						 
 							->where('deleted',0)		
                             ->where('type',2)                            
 							->with('state_name','primary_image')	
 							->orderBy('location_name','ASC')
                             ->paginate(env('PER_PAGE'));
-        $destinations->setPath('popular');
-		return view('destination.list', [ 'data' => $destinations]);      
+        $destinations->setPath('popular-destinations');
+		return view('destination.list', [ 'data' => $destinations]);            
 	}
     
     public function getOffbeat()
@@ -101,7 +101,7 @@ class DestinationController extends Controller {
 							->with('state_name','primary_image')	
 							->orderBy('location_name','ASC')
                             ->paginate(env('PER_PAGE'));
-        $destinations->setPath('offbeat');
+        $destinations->setPath('offbeat-destinations');
 		return view('destination.list', [ 'data' => $destinations]);      
 	}
     
@@ -141,6 +141,25 @@ class DestinationController extends Controller {
         
             
 		return view('destination.when_to_visit', [ 'destinations' => $destinations, 'destinationimage' => $destinationimage, 'page' => 'when-to-visit']);  
+    }
+    
+    public function getWhattoeat($title_meta_tag)
+    {       
+        $destinations=Destination::where('visibility',1)						 
+							->where('deleted',0)
+							->where('title_meta_tag',$title_meta_tag)
+							->with('state_name','primary_image')								
+							->get();	
+			
+
+		$destinationimage=Destinationimage::where('destination_id',$destinations[0]->id)
+							->where('status',1)
+							->where('deleted',0)
+							->orderBy('id','DESC')
+							->get();
+        
+            
+		return view('destination.what_to_eat', [ 'destinations' => $destinations, 'destinationimage' => $destinationimage, 'page' => 'what-to-eat']);  
     }
 
 }

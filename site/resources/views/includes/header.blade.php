@@ -44,7 +44,7 @@
             <a href="{{ url('/') }}">Home</a> &rarr;
             <span>@yield('title')</span>
             <span class="search_box">
-            <form method="GET" action="/sample/public/destinations" accept-charset="UTF-8" enctype="multipart/form-data">
+            <form method="GET" action="destinations" accept-charset="UTF-8" enctype="multipart/form-data">
                 <input type="text" name="search" class="searchbox" placeholder="Search..">
                 <input class="md-btn md-btn-primary uk-margin-small-top" value="Filter" type="submit">
             </form>

@@ -27,7 +27,7 @@
                     <div class="container">                    
                         @include('includes.destination_sub_menu')
                         <div id="tab-1" class="tab-content current">
-                            {{ $destinations[0]->when_to_visit }}
+                            {{ $destinations[0]->what_to_eat }}
                         </div>
                     </div><!-- container -->        
                 </div>

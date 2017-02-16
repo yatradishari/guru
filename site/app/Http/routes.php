@@ -19,6 +19,9 @@ Route::get('destinations', 'DestinationController@getIndex');
 Route::get('destinations/{destination_meta}', 'DestinationController@getDetails');
 Route::get('destinations/{destination_meta}/how-to-reach', 'DestinationController@getHowtoreach');
 Route::get('destinations/{destination_meta}/when-to-visit', 'DestinationController@getWhentovisit');
+Route::get('destinations/{destination_meta}/what-to-eat', 'DestinationController@getWhattoeat');
+Route::get('popular-destinations', 'DestinationController@getPopular');
+Route::get('offbeat-destinations', 'DestinationController@getOffbeat');
 //End destination Route
 Route::controller('touroperators', 'OperatorController');
 //Route::get('holidayhomes/{state_id}', 'HolidayhomeController@index');
@@ -46,8 +49,8 @@ Route::controllers([
 
 	
 Route::group(['namespace'=> 'Admin' , 'middleware' => 'auth'] , function(){	
-    //Route::controller('admin/dashboard'	, 'DashboardController' 	); 
-    //Route::controller('admin/destination'	, 'DestinationController' 	); 
+    Route::controller('admin/dashboard'	, 'DashboardController' 	); 
+    Route::controller('admin/destination'	, 'DestinationController' 	); 
 //	Route::controller('admin/auth'	, 'AuthController' 	); 	
 	//Route::controller('admin/destination'	, 'DestinationController' 	); 	
 	//Route::controller('admin/holidayhome'	, 'HolidayhomeController' 	); 	

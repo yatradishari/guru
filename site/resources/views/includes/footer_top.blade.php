@@ -13,8 +13,8 @@
                 <div class="widget">
                     <h3 class="widget-title">Helpful Links</h3>
                     <ul class="list-arrow">                        
-                        <li><a href="{{ url('/destinations/popular') }}">Popular Destinations</a></li>
-                        <li><a href="{{ url('/destinations/offbeat') }}">Offbeat Destinations</a></li>                        
+                        <li><a href="{{ url('/popular-destinations') }}">Popular Destinations</a></li>
+                        <li><a href="{{ url('/offbeat-destinations') }}">Offbeat Destinations</a></li>                        
                         <li><a href="{{ url('/holidayhomes') }}">Holiday Home</a></li>                        
                     </ul>
                 </div>

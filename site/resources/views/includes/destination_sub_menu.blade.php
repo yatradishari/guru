@@ -13,9 +13,14 @@
         <a class="remove_style" href="{{ url('/destinations/'.$destinations[0]->title_meta_tag.'/when-to-visit') }}" >
             When to Visit
         </a>
-    </li>    
+    </li> 
+    <li class="tab-link @if($page=='what-to-eat') current @endif" >
+        <a class="remove_style" href="{{ url('/destinations/'.$destinations[0]->title_meta_tag.'/what-to-eat') }}" >
+            What to Eat
+        </a>
+    </li>     
     <li class="tab-link" data-tab="tab-4">Accommodation</li>
-    <li class="tab-link" data-tab="tab-5">Food</li>
+    
     <li class="tab-link" data-tab="tab-6">Photo</li>    
 </ul>
 <style>    

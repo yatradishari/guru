@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Support\Facades\Input;
 use Auth;
 Use Redirect;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller {
 
@@ -51,14 +52,14 @@ class AuthController extends Controller {
          return View('auth.index');
     }
     
-    public function postLogin()
+    public function postLogin(Request $request)
 	{
-        //dd("ad");
-		$username = Input::get('email');
-		$password = Input::get('password');
-		
         
-		$remember = (Input::has('remember')) ? true : false;
+		$username = $request->get('email');
+		$password = $request->get('password');
+		//dd($password);
+        
+		$remember = ($request->has('remember')) ? true : false;
 		$auth = Auth::attempt(
 			[
 				'username'  => strtolower($username),
@@ -68,10 +69,11 @@ class AuthController extends Controller {
         
 		if ($auth) {
 			$user_type=Auth::user()->user_type;
-           // dd($user_type);
+            
 			if($user_type=="1")
-			{				
-				return Redirect::intended('admin/dashboard');
+			{	
+                //dd($user_type);
+				return Redirect::to('admin/dashboard');
 			}
 			else
 			{

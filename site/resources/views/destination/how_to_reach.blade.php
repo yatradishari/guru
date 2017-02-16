@@ -14,9 +14,9 @@
                         <img src="{{ URL::to('/site_assets/uploads/destination/'.$destinations[0]->primary_image->image_name) }}" alt="{{$destinations[0]->location_name}}">
                     @endif
                 </figure>
-                <div class="wow"> 
-                     <button type="button" class="btn btn-primary active">Going There</button>
-                     <button type="button" class="btn btn-primary active">Review</button>
+                <div class="">                      
+                     <button type="button" class="btn btn-primary active"><i class="fa fa-facebook left"></i> Going There</button>
+                     <button type="button" class="btn btn-primary active"><i class="fa fa-comments left"></i> Review</button>
                 </div>
             </div>
             <p> 
